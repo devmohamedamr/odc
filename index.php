@@ -566,3 +566,19 @@ $n = 10;
 
 
 
+
+//  include 
+// include_once 
+// require
+// require_once
+
+include "lib.php";
+
+
+add(1,2);
+
+
+echo $x;
+
+
+
