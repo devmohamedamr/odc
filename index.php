@@ -536,18 +536,31 @@ $n = 10;
 // }
 
 
-$imagescount = count($_FILES['img']['name']);
-for($i=0;$i<$imagescount;$i++){
+// $imagescount = count($_FILES['img']['name']);
+// for($i=0;$i<$imagescount;$i++){
 
-    $imagename = $_FILES['img']['name'][$i];
-    $tmp = $_FILES['img']['tmp_name'][$i];
-    move_uploaded_file($tmp,"images/".$imagename);
-}
-
-
+//     $imagename = $_FILES['img']['name'][$i];
+//     $tmp = $_FILES['img']['tmp_name'][$i];
+//     move_uploaded_file($tmp,"images/".$imagename);
+// }
 
 
 
+// $x = 10;
+
+
+// echo $x;
+
+
+
+//  sessions 
+// session_start();
+
+// $_SESSION['x'] = 10;
+
+// $_SESSION['name'] = "mohamed";
+
+// print_r($_SESSION);
 
 
 
