@@ -1,7 +1,7 @@
 <?php
-session_start();
+// session_start();
 
-if($_SESSION['login'] != true){
+if($_COOKIE['login'] != true){
     header("location: login.html");
 }
 
