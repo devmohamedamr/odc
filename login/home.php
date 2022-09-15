@@ -7,3 +7,9 @@ if($_SESSION['login'] != true){
 
 
 echo "welcome";
+
+?>
+
+<a href="logout.php">logout</a>
+
+<!-- cookies -->
