@@ -572,13 +572,31 @@ $n = 10;
 // require
 // require_once
 
-include "lib.php";
+// include "lib.php";
 
 
-add(1,2);
+// add(1,2);
 
 
-echo $x;
+// echo $x;
 
 
 
+
+
+
+// echo "<pre>";
+// print_r($_SERVER);
+
+
+// echo $_GET['id'];
+
+
+
+// $x = 20;
+
+// function test(){
+//     echo $GLOBALS['x'];
+// }
+
+// test();
