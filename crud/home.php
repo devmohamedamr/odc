@@ -30,7 +30,10 @@ $users =  mysqli_fetch_all($query,MYSQLI_ASSOC);
             <th>email</th>
             <th>password</th>
             <th>img</th>
+            <?php if($_SESSION['crud']['admin'] == 1): ?>
             <th>delete</th>
+            <?php endif; ?>
+            <th>update</th>
         </tr>
         <?php foreach($users as $user): ?>
         <tr>
@@ -39,7 +42,13 @@ $users =  mysqli_fetch_all($query,MYSQLI_ASSOC);
             <td><?= $user['email']; ?></td>
             <td><?= $user['password']; ?></td>
             <td><img width="100px" height="100px" src="upload/<?= $user['img']; ?>"></td>
+            <?php if($_SESSION['crud']['admin'] == 1): ?>
+
             <td><a href="delete.php?id=<?=  $user['id']; ?>">delete</a></td>
+            <?php endif; ?>   
+            
+            <td><a href="update.php?id=<?=  $user['id']; ?>">update</a></td>
+
         </tr>
        <?php endforeach; ?>
     </table>
