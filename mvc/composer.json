@@ -1,0 +1,17 @@
+{
+    "name": "odc/mvc",
+    "description": "simple mvc",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Odc\\Mvc\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mohamed amr",
+            "email": "dev.mohamedamr@gmail.com"
+        }
+    ],
+    "require": {}
+}
