@@ -3,23 +3,29 @@ namespace Odc\Mvc\core;
 
 class Bootstrap{
 
-    public $controller;
-    public $method;
+    private $controller;
+    private $method;
+    private $params;
 
     public function __construct()
     {
         $this->url();
         $this->run();
     }
-    public function url(){
+    private function url(){
         $url = $_SERVER['QUERY_STRING'];
         $url = explode("/",$url);
-        $this->controller = $url[0];
-        $this->method = $url[1];
+
+        $this->controller = (!empty($url[0])) ? $url[0] : "home";
+        $this->method = (!empty($url[1])) ? $url[1] : "index";
+        if(!empty($url)){
+            unset($url[0],$url[1]);
+        }
+        $this->params = $url;
     }
 
-    public function run(){
+    private function run(){
         $controller = "Odc\\Mvc\\controllers\\".$this->controller;
-        call_user_func_array([new $controller,$this->method],[]);
+        call_user_func_array([new $controller,$this->method],$this->params);
     }
 }
