@@ -9,30 +9,41 @@ class DB{
     {
         $this->connection = mysqli_connect("localhost","root","","odccrud");   
     }
-    protected function select($table,$columns){
+    public function select($table,$columns){
         $this->sql = "SELECT $columns FROM `$table`";
         return $this;
     }
-    protected function first(){
+    public function first(){
         $query = mysqli_query($this->connection,$this->sql);
        return mysqli_fetch_assoc($query);
     }
 
-    protected function all(){
+    public function all(){
+        // echo $this->sql;die;
         $query = mysqli_query($this->connection,$this->sql);
         return mysqli_fetch_all($query,MYSQLI_ASSOC);
     }
-    protected function delete($table){
+    public function delete($table){
         $this->sql = "DELETE FROM `$table`";
         return $this;
     }
 
-    protected function where($column,$operator,$value){
+    public function where($column,$operator,$value){
         $this->sql .= "WHERE `$column` $operator '$value'";
         return $this;
     }
 
-    protected function update($table,$data){
+    public function andWhere($column,$operator,$value){
+        $this->sql .= "AND `$column` $operator '$value'";
+        return $this;
+    }
+
+    public function join($type,$table,$pk,$fk){
+        $this->sql .= "$type JOIN `$table` ON $pk = $fk ";
+        return $this;
+    }
+
+    public function update($table,$data){
         $rows = "";
         foreach($data as $key => $value){
             $rows .= "`$key`= '$value',";
@@ -43,7 +54,7 @@ class DB{
         return $this;
     }
 
-    protected function insert($table,$data){
+    public function insert($table,$data){
         $columns = "";
         $values = "";
         foreach($data as $key => $value){
@@ -56,7 +67,7 @@ class DB{
         return $this;
     }
 
-    protected function excute(){
+    public function excute(){
         mysqli_query($this->connection,$this->sql);
        return mysqli_affected_rows($this->connection);
     }

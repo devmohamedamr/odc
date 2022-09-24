@@ -5,7 +5,10 @@
     "autoload": {
         "psr-4": {
             "Odc\\Mvc\\": "src/"
-        }
+        },
+        "files":[
+            "src/core/helper.php"
+        ]
     },
     "authors": [
         {
