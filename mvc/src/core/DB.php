@@ -38,6 +38,11 @@ class DB{
         return $this;
     }
 
+    public function orWhere($column,$operator,$value){
+        $this->sql .= "OR `$column` $operator '$value'";
+        return $this;
+    }
+
     public function join($type,$table,$pk,$fk){
         $this->sql .= "$type JOIN `$table` ON $pk = $fk ";
         return $this;

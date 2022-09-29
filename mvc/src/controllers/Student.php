@@ -56,4 +56,19 @@ class Student{
         header("location: index");
 
     }
+
+    public function search(){
+        return $this->views("search");
+    }
+
+    public function searchrequest(){
+        $studentmodel = new StudentModel;
+        $result =  $studentmodel->getStudentByNameOrPhone($_POST['name']);
+
+        return  $this->views('result',['result'=>$result]);
+    }
+
+    public function searchresult(){
+
+    }
 }

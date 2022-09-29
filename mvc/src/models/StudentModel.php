@@ -24,4 +24,7 @@ class StudentModel extends DB{
     public function updateStudent($data){
         return $this->update("students",$data)->where("id","=",$data['id'])->excute();
     }
+    public function getStudentByNameOrPhone($keyword){
+        return $this->select("students","*")->where("name","LIKE",'%'.$keyword.'%')->orWhere('phone','LIKE','%'.$keyword.'%')->all();
+    }
 }
